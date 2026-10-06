@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Performance Predictor | BDA Mini Project</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">BIG DATA ANALYTICS MINI PROJECT · PROJECT 06</div>
+    <h1>Student Performance Prediction</h1>
+    <p>Analyze student learning and academic factors to predict performance and identify students who may need early intervention.</p>
+    <div class="team">
+      <div><span>01</span><strong>Mohammed Zaid Mirkar</strong><small>231236</small></div>
+      <div><span>02</span><strong>Faisal Alvi</strong><small>231202</small></div>
+      <div><span>03</span><strong>Mohammad Ibrahim Maniyar</strong><small>231234</small></div>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <section class="stats">
+    <div><b>5,000</b><span>Student Records</span></div>
+    <div><b>4</b><span>Performance Levels</span></div>
+    <div><b>98.1%</b><span>Validation Accuracy</span></div>
+    <div><b>ML</b><span>Multinomial Logistic Regression</span></div>
+  </section>
+
+  <section class="layout">
+    <form id="studentForm" class="card">
+      <div class="section-title"><span>01</span><div><h2>Student Profile</h2><p>Enter the student's academic and learning information.</p></div></div>
+      <div class="grid">
+        <label>Age<input type="number" name="Age" min="10" max="30" value="16" required></label>
+        <label>Class<input type="number" name="Class" min="1" max="12" value="10" required></label>
+        <label>Gender<select name="Gender" required><option value="">Select</option><option>Female</option><option>Male</option></select></label>
+        <label>Parental Education<select name="Parental_Education" required><option value="">Select</option><option>High School</option><option>Graduate</option><option>Postgraduate</option></select></label>
+        <label>Internet Access<select name="Internet_Access" required><option value="">Select</option><option>Yes</option><option>No</option></select></label>
+        <label>Extracurricular Activities<select name="Extracurricular_Activities" required><option value="">Select</option><option>Yes</option><option>No</option></select></label>
+      </div>
+
+      <div class="section-title"><span>02</span><div><h2>Learning & Attendance</h2><p>Factors related to study habits and engagement.</p></div></div>
+      <div class="grid">
+        <label>Study Hours / Day<input type="number" name="Study_Hours_Per_Day" min="0" max="12" step="0.1" placeholder="e.g. 3.5" required></label>
+        <label>Attendance %<input type="number" name="Attendance_Percentage" min="0" max="100" placeholder="e.g. 82" required></label>
+        <label>Previous Year Score<input type="number" name="Previous_Year_Score" min="0" max="100" placeholder="e.g. 72" required></label>
+      </div>
+
+      <div class="section-title"><span>03</span><div><h2>Subject Scores</h2><p>Current scores used by the prediction model.</p></div></div>
+      <div class="grid">
+        <label>Mathematics<input type="number" name="Math_Score" min="0" max="100" placeholder="0–100" required></label>
+        <label>Science<input type="number" name="Science_Score" min="0" max="100" placeholder="0–100" required></label>
+        <label>English<input type="number" name="English_Score" min="0" max="100" placeholder="0–100" required></label>
+      </div>
+
+      <button id="predictBtn" type="submit">Predict Student Performance <span>→</span></button>
+      <p class="form-note">The model predicts the performance level and provides an early-intervention recommendation.</p>
+      <div id="error" class="error hidden"></div>
+    </form>
+
+    <aside class="card side">
+      <div class="section-title"><span>04</span><div><h2>How It Works</h2><p>Lightweight ML pipeline designed for Vercel.</p></div></div>
+      <div class="steps">
+        <div><b>1</b><p>Collect student and academic inputs.</p></div>
+        <div><b>2</b><p>Encode categorical values and standardize numeric values.</p></div>
+        <div><b>3</b><p>Run the trained multinomial logistic regression model.</p></div>
+        <div><b>4</b><p>Return performance, pass/fail status, confidence and intervention tips.</p></div>
+      </div>
+      <div class="insight"><strong>Project 06 · Education</strong><p>The supplied project brief defines the objective as student performance prediction, with early intervention for at-risk students and improved course planning.</p></div>
+    </aside>
+  </section>
+
+  <section id="result" class="result hidden">
+    <div class="result-top"><div><span class="label">PREDICTION RESULT</span><h2 id="level">—</h2><p id="summary">—</p></div><div id="risk" class="risk">—</div></div>
+    <div class="result-grid">
+      <div><span>Estimated Final %</span><strong id="percentage">—</strong></div>
+      <div><span>Pass / Fail</span><strong id="passfail">—</strong></div>
+      <div><span>Model Confidence</span><strong id="confidence">—</strong></div>
+    </div>
+    <div class="recommend"><h3>Early Intervention / Recommendation</h3><ul id="recommendations"></ul></div>
+  </section>
+
+  <section class="card insights">
+    <div class="section-title"><span>05</span><div><h2>Dataset Insights</h2><p>Based on the supplied 5,000-record Student Performance Dataset and EDA notebook.</p></div></div>
+    <div class="insight-grid">
+      <div><strong>4</strong><span>Performance categories</span></div>
+      <div><strong>94.7%</strong><span>Students marked Pass</span></div>
+      <div><strong>3</strong><span>Core subject scores</span></div>
+      <div><strong>12</strong><span>Prediction features</span></div>
+    </div>
+  </section>
+</main>
+
+<footer>Big Data Analytics Mini Project · Student Performance Prediction · Mohammed Zaid Mirkar · Faisal Alvi · Mohammad Ibrahim Maniyar</footer>
+<script src="/static/script.js"></script>
+</body>
+</html>
